@@ -1,0 +1,14 @@
+
+.demo{
+    width: 150px;
+    height: 150px;
+    background: red;
+    float: left;
+}
+
+.demo2{
+    width: 150px;
+    height: 150px;
+    background: blue;
+    float: left;
+}

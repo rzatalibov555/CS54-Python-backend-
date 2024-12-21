@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'news/css/style.css'%}">
+    
+  </head>
+  <body>
+    <h1>Welcome {{ user }}</h1>
+
+    
+
+    <p>Menu adi</p>
+    <ul>
+      {% for m in menu %}
+        <li>{{ m }}</li>
+      {% endfor %}
+    </ul>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block content2 %}
+
+    {% endblock %}
+  </body>
+</html>
