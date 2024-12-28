@@ -9,6 +9,7 @@ urlpatterns = [
     path("index", index),
     path("about/", about),
     path("contact/", contact),
+    path("error/", error),
     # path('cats/<int:catId>', category),
     # re_path(r'^archive/(?P<year>[0-9]{4})/',archive),
 

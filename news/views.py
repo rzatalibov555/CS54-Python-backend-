@@ -7,21 +7,23 @@ def index(request):
 
     context = {
         "title":"Home", 
-        "user":"Muradik",
-        "menu": ["Home", "About", "Contact"]
     }
 
     return render(request, "news/index.html", context)
 
 
 def about(request):
-    return render(request, "news/about.html", {"title":"About", "user":"Ayxan"})
+    return render(request, "news/about.html", {"title":"About"})
 
 def contact(request):
-    return render(request, "news/contact.html", {"title":"Contact", "user":"Muradik"})
+    return render(request, "news/contact-us.html", {"title":"Contact"})
 
 
-
+def error(request):
+    context = {
+        "title":"Error"
+    }
+    return render(request, "news/error.html", context)
 
 
 # def index(request):
