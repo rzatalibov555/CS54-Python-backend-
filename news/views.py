@@ -6,7 +6,7 @@ from django.shortcuts import render
 def index(request):
 
     context = {
-        "title":"Home", 
+        "title":"Home",
     }
 
     return render(request, "news/index.html", context)
