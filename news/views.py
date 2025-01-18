@@ -1,5 +1,6 @@
 from django.http import Http404, HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from .models import News 
 
 # Create your views here.
 
@@ -7,6 +8,7 @@ def index(request):
 
     context = {
         "title":"Home",
+        "posts" : News.objects.all()
     }
 
     return render(request, "news/index.html", context)

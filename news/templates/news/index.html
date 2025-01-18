@@ -1,7 +1,7 @@
 {% extends 'news/base.html' %}
 {% load static %}
 
-  {% block content %}
+{% block content %}
   <!-- Banner area strats here -->
   <div class="banner-area2 mb-60">
     <div class="container">
@@ -175,8 +175,7 @@
     </div>
   </div>
   <!-- Banner area ends here -->
-   
-  
+
   <!-- Discover area strats here -->
   <div class="discover-section mb-70">
     <div class="container">
@@ -297,106 +296,42 @@
               </div>
             </div>
             <div class="row g-4 gy-5">
-              <div class="col-md-6">
-                <div class="blog-card">
-                  <div class="blog-card-img-wrap">
-                    <a href="standard-formate.html"><img src="{% static 'news/' %}assets/image/index-img/blog-img-1.png" alt="" /></a>
-                    <a href="life-style.html"><span>Fashion</span></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="author-area">
-                      <ul>
-                        <li>
-                          <a href="editor-profile.html">Robert Kcarery</a>
-                        </li>
-                        <li>
-                          <a class="publish-date" href="life-style.html">
-                            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="3" cy="3" r="3" fill="#C4C4C4" />
-                            </svg>08 Jan, 2024
-                          </a>
-                        </li>
-                      </ul>
+              {% for post in posts %}
+                <div class="col-md-6">
+                  <div class="blog-card">
+                    <div class="blog-card-img-wrap">
+
+                      
+                      {% if post.image %}
+                      <a href="standard-formate.html"><img class="img_class" src="{{post.image.url}}" alt="" /></a>
+                      {% else %}
+                      <a href="standard-formate.html"><img class="img_class_else" src="https://cdn.vectorstock.com/i/500p/82/99/no-image-available-like-missing-picture-vector-43938299.jpg" alt="" /></a>
+                      {% endif %}
+                      
+
+                      <a href="life-style.html"><span>Gaming</span></a>
                     </div>
-                    <h5><a href="standard-formate.html">Elevate Your Style Game with Confidence</a></h5>
+                    <div class="blog-content">
+                      <div class="author-area">
+                        <ul>
+                          <li>
+                            <a href="editor-profile.html">Robert Kcarery</a>
+                          </li>
+                          <li>
+                            <a class="publish-date" href="life-style.html">
+                              <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="3" cy="3" r="3" fill="#C4C4C4" />
+                              </svg>{{post.time_create}}
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <h5><a href="standard-formate.html">{{ post.title }}</a></h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="blog-card">
-                  <div class="blog-card-img-wrap">
-                    <a href="standard-formate.html"><img src="{% static 'news/' %}assets/image/index-img/blog-img-2.png" alt="" /></a>
-                    <a href="life-style.html"><span>Beauty</span></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="author-area">
-                      <ul>
-                        <li>
-                          <a href="editor-profile.html">Robert Kcarery</a>
-                        </li>
-                        <li>
-                          <a class="publish-date" href="life-style.html">
-                            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="3" cy="3" r="3" fill="#C4C4C4" />
-                            </svg>08 Jan, 2024
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h5><a href="standard-formate.html">Glow Up Guide: Radiant Skin from AM to PM</a></h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="blog-card">
-                  <div class="blog-card-img-wrap">
-                    <a href="standard-formate.html"><img src="{% static 'news/' %}assets/image/index-img/blog-img-3.png" alt="" /></a>
-                    <a href="life-style.html"><span>Health</span></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="author-area">
-                      <ul>
-                        <li>
-                          <a href="editor-profile.html">Robert Kcarery</a>
-                        </li>
-                        <li>
-                          <a class="publish-date" href="life-style.html">
-                            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="3" cy="3" r="3" fill="#C4C4C4" />
-                            </svg>08 Jan, 2024
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h5><a href="standard-formate.html">Wellness Nourishing Mind, Body, and Soul Trends</a></h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="blog-card">
-                  <div class="blog-card-img-wrap">
-                    <a href="standard-formate.html"><img src="{% static 'news/' %}assets/image/index-img/blog-img-4.png" alt="" /></a>
-                    <a href="life-style.html"><span>Gaming</span></a>
-                  </div>
-                  <div class="blog-content">
-                    <div class="author-area">
-                      <ul>
-                        <li>
-                          <a href="editor-profile.html">Robert Kcarery</a>
-                        </li>
-                        <li>
-                          <a class="publish-date" href="life-style.html">
-                            <svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="3" cy="3" r="3" fill="#C4C4C4" />
-                            </svg>08 Jan, 2024
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h5><a href="standard-formate.html">Speed Run Secrets: Achieving Record Times</a></h5>
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
+
               <div class="view-all-btn">
                 <a href="life-style.html" class="view-btn hover-btn">
                   View All<svg class="arrow" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1588,7 +1523,6 @@
   </div>
   <!-- Blog post area ends here -->
 
-
   <!-- Galleary section strats here -->
   <div class="gallery-section pt-100">
     <div class="container">
@@ -1843,4 +1777,4 @@
     </div>
   </div>
   <!-- Galleary section ends here -->
-  {% endblock content %}
+{% endblock %}
