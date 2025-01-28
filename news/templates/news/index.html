@@ -309,7 +309,7 @@
                       {% endif %}
                       
 
-                      <a href="life-style.html"><span>Gaming</span></a>
+                      <a href="{{post.get_absolute_url}}"><span>{{post.cat}}</span></a>
                     </div>
                     <div class="blog-content">
                       <div class="author-area">
@@ -326,7 +326,7 @@
                           </li>
                         </ul>
                       </div>
-                      <h5><a href="standard-formate.html">{{ post.title }}</a></h5>
+                      <h5><a href="standard-formate.html">{{ post.title|truncatechars:60 }}</a></h5>
                     </div>
                   </div>
                 </div>

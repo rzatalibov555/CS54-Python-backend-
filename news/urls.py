@@ -5,11 +5,15 @@ from .views import * #all
 # from news.views import about, contact, index
 
 urlpatterns = [
-    path("", index),
-    path("index", index),
-    path("about/", about),
-    path("contact/", contact),
-    path("error/", error),
+    path("", index, name=""),
+    path("index", index, name="home"),
+    path("about/", about, name="about"),
+    path("contact/", contact, name="contact"),
+    path("error/", error, name="error"),
+
+    # path("news_detail/", detail_news, name="news_detail")
+    path('category/<int:cat_id>/', categories, name="category")
+
     # path('cats/<int:catId>', category),
     # re_path(r'^archive/(?P<year>[0-9]{4})/',archive),
 

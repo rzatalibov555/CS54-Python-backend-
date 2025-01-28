@@ -1,10 +1,10 @@
 from django.utils.html import format_html
 from django.contrib import admin
-from .models import News
+from .models import News, Category
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ['title', 'image_preview', 'time_create', 'time_update', 'is_published']
+    list_display = ['title', 'image_preview', 'time_create', 'time_update', 'is_published','cat']
     list_editable = ["is_published"]
     list_display_links = ["title"]
     list_filter = ['is_published']
@@ -20,6 +20,15 @@ class NewsAdmin(admin.ModelAdmin):
             )
         return "No Image"
 
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['id','name','time_create', 'time_update', 'is_published']
+    list_display_links = ["name"]
+    list_filter = ['is_published']
+    list_editable = ["is_published"]
+
+
 admin.site.register(News, NewsAdmin)
+admin.site.register(Category, CategoryAdmin)
 
 

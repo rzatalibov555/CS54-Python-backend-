@@ -1,6 +1,6 @@
-from django.http import Http404, HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponseNotFound
 from django.shortcuts import render
-from .models import News 
+from .models import Category, News 
 
 # Create your views here.
 
@@ -13,6 +13,23 @@ def index(request):
 
     return render(request, "news/index.html", context)
 
+def categories(request, cat_id):
+
+    news = News.objects.filter(cat_id=cat_id)
+    cats = Category.objects.all()
+
+    if len(news) == 0:
+        raise Http404()
+
+    context = {
+        "title": "Category",
+        "news" : news,
+        "cats" : cats,
+        "cat_selected" : cat_id
+    }
+
+    return render(request, "news/life-style.html", context=context)
+    # return HttpResponse(f"Category - {cat_id}")
 
 def about(request):
     return render(request, "news/about.html", {"title":"About"})
@@ -27,6 +44,8 @@ def error(request):
     }
     return render(request, "news/error.html", context)
 
+def pageNotFound(request, exception):
+    return HttpResponseNotFound("UPSSS! Sehife tapilmadi")
 
 # def index(request):
 #     return HttpResponse("<h1>Home page</h1>")
@@ -47,5 +66,3 @@ def error(request):
 #         raise Http404()
 #     return HttpResponse(f"Arxivde {year} wzre axtaris")
 
-def pageNotFound(request, exception):
-    return HttpResponseNotFound("UPSSS! Sehife tapilmadi")
