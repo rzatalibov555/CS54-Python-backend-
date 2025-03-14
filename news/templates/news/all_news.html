@@ -2,18 +2,18 @@
 {% load static %}
 
     {% block content %}
-    <!-- banner section strats here -->
+
     <div class="inner-page-banner-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-page-banner-wrapper" style="background-image: url({% static 'news/' %}assets/image/life-style/Background-7.png);">
                         <div class="banner-content">
-                            <h1>Kateqoriya</h1>
-                            {% comment %} <p>Feel free to choose or modify any of these titles to match the specific focus and tone of your food blog. Whether you're sharing recipes,</p> {% endcomment %}
+                            <h1>All news</h1>
+                            
                             <ul class="breadcrumb-list">
-                                <li><a href="index.html">Home</a></li>
-                                <li>Life Style </li>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li>All news </li>
                             </ul>
                         </div>
                     </div>
@@ -21,9 +21,7 @@
             </div>
         </div>
     </div>
-    <!-- banner section ends here -->
-
-    <!-- Blog section strats here  -->
+  
     <div class="blog-post-8 pt-70">
         <div class="container">
             <div class="row g-lg-4 gy-5">
@@ -34,11 +32,13 @@
                         <div class="col-md-4">
                             <div class="blog-card2 two">
                                 <div class="blog-card-img-wrap">
-                                    {% if post.image %}
-                                        <a href="{{ post.get_absolute_url }}"><img class="img_category_class" src="{{post.image.url}}" alt=""></a>
-                                    {% else %}
-                                        <a href="{{ post.get_absolute_url }}"><img class="img_category_class_else" src="https://cdn.vectorstock.com/i/500p/82/99/no-image-available-like-missing-picture-vector-43938299.jpg" alt="" /></a>
-                                    {% endif %}
+                                    <a href="{{post.get_absolute_url}}">
+                                        {% if post.image %}
+                                            <img class="img_category_class" src="{{post.image.url}}" alt="">
+                                        {% else %}
+                                            <img class="img_category_class_else" src="https://cdn.vectorstock.com/i/500p/82/99/no-image-available-like-missing-picture-vector-43938299.jpg" alt="" />
+                                        {% endif %}
+                                    </a>
                                     <ul>
                                         <li><a class="category" href="{% url 'category' post.cat.id %}">{{post.cat}}</a></li>
                                     </ul>
@@ -49,10 +49,10 @@
                                             <a href="#">Robert Kcarery</a>
                                         </li>
                                         <li>
-                                            <a class="publish-date" href="#">{{post.time_create}}</a>
+                                            <a class="publish-date" href="{{post.get_absolute_url}}">{{post.time_create}}</a>
                                         </li>
                                     </ul>
-                                    <h4><a href="{{ post.get_absolute_url }}">{{post.title|truncatechars:60}}</a></h4>
+                                    <h4><a href="{{post.get_absolute_url}}">{{post.title|truncatechars:60}}</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -229,44 +229,9 @@
             </div>
         </div>
     </div>
-    <!-- Blog section ends here  -->
-    
-    <!-- Footer area strats here -->
+   
      {% endblock %}
 
 
 
 
-
-
-
-
-
-
-
-    {% comment %} <!-- jquery js link -->
-    <script src="assets/js/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/jquery-ui.js"></script>
-    <!-- Counterup js link -->
-    <script src="assets/js/waypoints.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <!-- Marquee js link -->
-    <script src="assets/js/jquery.marquee.min.js"></script>
-    <!-- Wow js link -->
-    <script src="assets/js/wow.min.js"></script>
-    <!-- Popper js link -->
-    <script src="assets/js/popper.min.js"></script>
-    <!-- Swiper js link -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!-- fancybox link -->
-    <script src="assets/js/jquery.fancybox.min.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <!-- Bootstrap js link -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/boxicons.min.js"></script>
-    <!-- Custom js -->
-    <script src="assets/js/custom.js"></script>
-</body>
-
-</html> {% endcomment %}

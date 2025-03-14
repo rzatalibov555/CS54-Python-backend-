@@ -10,6 +10,7 @@ class News(models.Model):
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Yaranma tarİxİ")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Yenİlənmə tarİxİ")
     is_published = models.BooleanField(default=True, verbose_name="Status")
+    
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
 
     def __str__(self):
@@ -23,12 +24,12 @@ class News(models.Model):
         verbose_name_plural = "News"
         ordering =['time_create','title']
 
-    # def get_absolute_url(self):
-    #     return reverse("news_detail", kwargs={"news_id": self.pk})
+    def get_absolute_url(self):
+        return reverse("news_detail", kwargs={"post_id": self.pk})
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=60, db_index=True)
+    name = models.CharField(max_length=60, db_index=True, verbose_name="Ad")
     time_create = models.DateTimeField(auto_now_add=True, verbose_name="Yaranma tarİxİ")
     time_update = models.DateTimeField(auto_now=True, verbose_name="Yenİlənmə tarİxİ")
     is_published = models.BooleanField(default=True, verbose_name="Status")

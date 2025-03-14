@@ -1,120 +1,47 @@
 {% load static %}
 
+
 <header class="life-style d-lg-flex d-none">
     <div class="container-md">
       <div class="col-lg-12">
         <div class="header-wrapper">
           <div class="main-menu">
             <ul class="menu-list">
-              <li class="menu-item-has-children active">
-                <a href="index.html" class="drop-down">DEMO</a><i class="bi bi-plus dropdown-icon"></i>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="index.html">Life Style</a>
+              
+              {% for m in menu %}
+                
+                {% comment %} {% if not forloop.last %}
+                  <li class="border_style">
+                    <a  href="{% url m.url_name %}">{{ m.title }}</a>
                   </li>
+                {% else %}
                   <li>
-                    <a href="travel/index.html">Travel</a>
+                    <a href="{% url m.url_name %}">{{ m.title }}</a>
                   </li>
-                  <li>
-                    <a href="pet-care/index.html">Pet Care</a>
-                  </li>
-                  <li>
-                    <a href="health-and-wellness/index.html">Health & Wellness</a>
-                  </li>
-                  <li>
-                    <a href="ai-technology/index.html">AI Technology</a>
-                  </li>
-                  <li>
-                    <a href="podcast/index.html">Podcast</a>
-                  </li>
-                  <li>
-                    <a href="minimal.html">Minimal</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="life-style.html">LIFE STYLE</a>
-              </li>
-              <li>
-                <a href="life-style.html">FOOD</a>
-              </li>
-              <li>
-                <a href="life-style.html">TRAVEL</a>
-              </li>
-              <li>
-                <a href="life-style.html">GAMING</a>
-              </li>
+                {% endif %} {% endcomment %}
+
+                <li>
+                  <a href="{% url m.url_name %}">{{ m.title }}</a>
+                </li>
+
+              {% endfor %}
+
               <li class="menu-item-has-children">
-                <a href="index.html#" class="drop-down">POST FEATURES</a><i class="bi bi-plus dropdown-icon"></i>
+                <a href="#" class="drop-down">Categories</a><i class="bi bi-plus dropdown-icon"></i>
                 <ul class="sub-menu">
-                  <li>
-                    <a href="about-us.html">About Us</a>
-                  </li>
-                  <li>
-                    <a href="standard-formate.html">Post Format</a>
-                    <i class="bi bi-plus dropdown-icon"></i>
-                    <ul class="sub-menu">
-                      <li>
-                        <a href="standard-formate.html">Standard Format</a>
-                      </li>
-                      <li>
-                        <a href="gallery-formate.html">Gallery Format</a>
-                      </li>
-                      <li>
-                        <a href="video-formate.html">Video Format</a>
-                      </li>
-                      <li>
-                        <a href="audio-formate.html">Audio Format</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="full-widht-with-sideber.html">Post Sidebar</a>
-                    <i class="bi bi-plus dropdown-icon"></i>
-                    <ul class="sub-menu">
-                      <li>
-                        <a href="full-widht-with-sideber.html">Full Width with sidebar</a>
-                      </li>
-                      <li>
-                        <a href="full-widht-with-no-sidebar.html">Full Width No sidebar</a>
-                      </li>
-                      <li>
-                        <a href="classic-with-sidebar.html">Classic with Sidebar</a>
-                      </li>
-                      <li>
-                        <a href="vertical-with-sidebar.html">Vertical with Sidebar</a>
-                      </li>
-                      <li>
-                        <a href="vertical-with-no-sidebar.html">Vertical with No Sidebar</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="editor-profile.html">Editor Profile</a>
-                  </li>
-                  <li>
-                    <a href="post-pagination.html">Post Pagination</a>
-                  </li>
-                  <li>
-                    <a href="only-for-subscriber.html">Only for subscriber</a>
-                  </li>
-                  <li>
-                    <a href="faq.html">FAQ's</a>
-                  </li>
-                  <li>
-                    <a href="terms&amp;condition.html">Terms & Conditions</a>
-                  </li>
-                  <li>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                  </li>
-                  <li>
-                    <a href="error.html">404</a>
-                  </li>
+                  {% for c in categories %}
+                    {% if c.pk == cat_selected %}
+                      <li><a class="active" href="#">{{ c.name }}</a></li>
+                    {% else %}
+                      <li><a href="{{ c.get_absolute_url }}">{{ c.name }}</a></li>
+                    {% endif %}
+                    
+                  {% endfor %}
+                  
+                  
                 </ul>
               </li>
-              <li>
-                <a href="contact-us.html">CONTACT</a>
-              </li>
+              
             </ul>
           </div>
           <div class="nav-right d-flex jsutify-content-end align-items-center">

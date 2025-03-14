@@ -10,8 +10,10 @@ urlpatterns = [
     path("about/", about, name="about"),
     path("contact/", contact, name="contact"),
     path("error/", error, name="error"),
+    path("allNews/", allNews, name="allNews"),
 
-    # path("news_detail/", detail_news, name="news_detail")
+    path("news_detail/<int:post_id>/", news_detail, name="news_detail"),
+
     path('category/<int:cat_id>/', categories, name="category")
 
     # path('cats/<int:catId>', category),
